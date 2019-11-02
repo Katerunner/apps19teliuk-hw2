@@ -21,6 +21,7 @@ public class StackTest {
             assertEquals(i, stack.peek());
         }
         for (int j = 14; j > 10; j--) {
+            assertFalse(stack.isEmpty());
             assertEquals(14, stack.peek());
         }
     }

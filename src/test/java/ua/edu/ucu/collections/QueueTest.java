@@ -33,6 +33,7 @@ public class QueueTest {
             queue.enqueue(i);
         }
         for (int j = 0; j < 15; j++) {
+            assertFalse(queue.isEmpty());
             assertEquals(j, queue.dequeue());
         }
         assertTrue(queue.isEmpty());
