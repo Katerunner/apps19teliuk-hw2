@@ -132,13 +132,13 @@ public class ImmutableArrayList implements ImmutableList {
     }
 
     @Override
-    public String toString(){
-        if (isEmpty()){
+    public String toString() {
+        if (isEmpty()) {
             return "";
 
         }
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < array.length; i ++){
+        for (int i = 0; i < array.length; i++) {
             result.append(array[i].toString()).append(", ");
         }
         result.deleteCharAt(result.length() - 1).deleteCharAt(result.length() - 1);

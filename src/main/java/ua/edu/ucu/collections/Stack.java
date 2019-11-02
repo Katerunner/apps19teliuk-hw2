@@ -23,7 +23,8 @@ public class Stack {
         list = list.removeFirst();
         return item;
     }
-    public boolean isEmpty(){
+
+    public boolean isEmpty() {
         return list.size() == 0;
     }
 }
