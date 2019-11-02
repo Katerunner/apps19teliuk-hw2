@@ -65,10 +65,10 @@ public class ImmutableLinkedListTest {
 
     @Test
     public void testAddAllMany() {
-        Object[] expected1 = new Object[]{7, 2, 666, 777, 888, 9, 5};
+        Object[] expected1 = new Object[]{666, 777, 888, 7, 2, 9, 5};
         Object[] expected2 = new Object[]{12, 3, 666, 777, 888, 5, 7, 65, 4, 645, 7, 56, 33, 6};
         Object[] expected3 = new Object[]{666, 777, 888};
-        ImmutableList actual1 = small.addAll(2, addon);
+        ImmutableList actual1 = small.addAll(0, addon);
         ImmutableList actual2 = big.addAll(2, addon);
         ImmutableList actual3 = noElements.addAll(0, addon);
         assertArrayEquals(expected1, actual1.toArray());

@@ -93,15 +93,16 @@ public final class ImmutableLinkedList implements ImmutableList {
 
         ImmutableLinkedList newlist = copy();
         Node cur = newlist.root;
-        if (length == 0){
+        if (length == 0) {
             return new ImmutableLinkedList(c);
         }
         if (index == 0) {
-            newlist.root = new Node(c[0], cur);
-            cur = cur.next;
+            Node oldroot = cur;
+            newlist.root = new Node(c[0], oldroot);
+            Node cur1 = newlist.root;
             for (int j = 1; j < c.length; j++) {
-                cur = new Node(c[j], cur);
-                cur = cur.next;
+                cur1.next = new Node(c[j], oldroot);
+                cur1 = cur1.next;
             }
         } else {
             OutOfBounds(index - 1);
@@ -161,8 +162,6 @@ public final class ImmutableLinkedList implements ImmutableList {
             if (i == index) {
                 cur.data = e;
                 break;
-            } else {
-                cur = cur.next;
             }
         }
         return newlist;
@@ -241,10 +240,10 @@ public final class ImmutableLinkedList implements ImmutableList {
     }
 
     public ImmutableLinkedList removeLast() {
-        return remove(length-1);
+        return remove(length - 1);
     }
 
     public Object getLast() {
-        return get(length-1);
+        return get(length - 1);
     }
 }
