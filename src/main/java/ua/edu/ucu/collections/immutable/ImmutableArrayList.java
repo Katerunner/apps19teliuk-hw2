@@ -9,15 +9,16 @@ public class ImmutableArrayList implements ImmutableList {
         this.array = new Object[0];
     }
 
+    public ImmutableArrayList(Object[] outside) {
+        this.array = Arrays.copyOf(outside, outside.length);
+    }
+
     private void outOfBounds(int ind) {
         if (ind < 0 || ind > array.length) {
             throw new IndexOutOfBoundsException();
         }
     }
 
-    public ImmutableArrayList(Object[] outside) {
-        this.array = Arrays.copyOf(outside, outside.length);
-    }
 
     @Override
     public ImmutableList add(Object e) {
