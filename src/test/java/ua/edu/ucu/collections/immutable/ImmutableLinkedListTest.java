@@ -119,8 +119,8 @@ public class ImmutableLinkedListTest {
 
     @Test
     public void testSet() {
-        Object[] actual = big.set(0, 666).toArray();
-        Object[] expected = new Object[]{666, 3, 5, 7, 65, 4, 645, 7, 56, 33, 6};
+        Object[] actual = big.set(1, 666).toArray();
+        Object[] expected = new Object[]{12, 666, 5, 7, 65, 4, 645, 7, 56, 33, 6};
         assertArrayEquals(expected, actual);
         assertArrayEquals(new Object[]{12, 3, 5, 7, 65, 4, 645, 7, 56, 33, 6}, big.toArray());
     }

@@ -139,15 +139,10 @@ public class ImmutableLinkedList implements ImmutableList {
             newlist.length--;
             return newlist;
         }
-        for (int i = 1; i < newlist.length; i++) {
-            if (i == index) {
-                cur.next = cur.next.next;
-                break;
-            } else {
-                cur = cur.next;
-            }
-
+        for (int i = 1; i < index; i++) {
+            cur = cur.next;
         }
+        cur.next = cur.next.next;
         newlist.length--;
         return newlist;
     }
@@ -157,12 +152,10 @@ public class ImmutableLinkedList implements ImmutableList {
         outOfBounds(index);
         ImmutableLinkedList newlist = copy();
         Node cur = newlist.root;
-        for (int i = 0; i < newlist.length; i++) {
-            if (i == index) {
-                cur.data = e;
-                break;
-            }
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
         }
+        cur.data = e;
         return newlist;
     }
 
