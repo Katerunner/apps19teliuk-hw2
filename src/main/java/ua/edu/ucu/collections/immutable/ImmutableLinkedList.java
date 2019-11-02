@@ -1,6 +1,6 @@
 package ua.edu.ucu.collections.immutable;
 
-public final class ImmutableLinkedList implements ImmutableList {
+public class ImmutableLinkedList implements ImmutableList {
 
     private Node root;
     private int length;
@@ -122,9 +122,8 @@ public final class ImmutableLinkedList implements ImmutableList {
     @Override
     public Object get(int index) {
         OutOfBounds(index);
-        int i = 0;
         Node cur = root;
-        for (i = 0; i < index; i++) {
+        for (int i = 0; i < index; i++) {
             cur = cur.next;
         }
         return cur.data;
@@ -223,11 +222,11 @@ public final class ImmutableLinkedList implements ImmutableList {
         return result.toString();
     }
 
-    public ImmutableLinkedList addFirst(int i) {
+    public ImmutableLinkedList addFirst(Object i) {
         return add(0, i);
     }
 
-    public ImmutableLinkedList addLast(int i) {
+    public ImmutableLinkedList addLast(Object i) {
         return add(i);
     }
 
