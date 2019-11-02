@@ -89,8 +89,13 @@ public class ImmutableArrayListTest {
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testOOBGet() {
+    public void testOOBGetSmall() {
         noElements.get(0);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testOOBGetBig() {
+        small.get(200);
     }
 
     @Test

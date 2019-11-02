@@ -94,6 +94,11 @@ public class ImmutableLinkedListTest {
         noElements.get(0);
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testOOBGetBig() {
+        small.get(200);
+    }
+
     @Test
     public void testRemove() {
         Object[] actual = big.remove(1).toArray();
