@@ -35,7 +35,7 @@ public class ImmutableLinkedList implements ImmutableList {
         }
     }
 
-    private void OutOfBounds(int ind) {
+    private void outOfBounds(int ind) {
         if (ind < 0 || ind >= length) {
             throw new IndexOutOfBoundsException();
         }
@@ -71,7 +71,7 @@ public class ImmutableLinkedList implements ImmutableList {
         if (index == 0) {
             newlist.root = new Node(e, cur);
         } else {
-            OutOfBounds(index - 1);
+            outOfBounds(index - 1);
             int i;
             for (i = 0; i < index - 1; i++) {
                 cur = cur.next;
@@ -99,13 +99,13 @@ public class ImmutableLinkedList implements ImmutableList {
         if (index == 0) {
             Node oldroot = cur;
             newlist.root = new Node(c[0], oldroot);
-            Node cur1 = newlist.root;
+            Node newCur = newlist.root;
             for (int j = 1; j < c.length; j++) {
-                cur1.next = new Node(c[j], oldroot);
-                cur1 = cur1.next;
+                newCur.next = new Node(c[j], oldroot);
+                newCur = newCur.next;
             }
         } else {
-            OutOfBounds(index - 1);
+            outOfBounds(index - 1);
             int i;
             for (i = 0; i < index - 1; i++) {
                 cur = cur.next;
@@ -121,7 +121,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public Object get(int index) {
-        OutOfBounds(index);
+        outOfBounds(index);
         Node cur = root;
         for (int i = 0; i < index; i++) {
             cur = cur.next;
@@ -131,7 +131,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public ImmutableLinkedList remove(int index) {
-        OutOfBounds(index);
+        outOfBounds(index);
         ImmutableLinkedList newlist = copy();
         Node cur = newlist.root;
         if (index == 0) {
@@ -154,7 +154,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     @Override
     public ImmutableList set(int index, Object e) {
-        OutOfBounds(index);
+        outOfBounds(index);
         ImmutableLinkedList newlist = copy();
         Node cur = newlist.root;
         for (int i = 0; i < newlist.length; i++) {
@@ -217,7 +217,8 @@ public class ImmutableLinkedList implements ImmutableList {
             result.append(cur.data.toString()).append(", ");
             cur = cur.next;
         }
-        result.deleteCharAt(result.length() - 1).deleteCharAt(result.length() - 1);
+        result.deleteCharAt(result.length()
+                - 1).deleteCharAt(result.length() - 1);
 
         return result.toString();
     }

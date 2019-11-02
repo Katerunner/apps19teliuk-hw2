@@ -9,7 +9,7 @@ public class ImmutableArrayList implements ImmutableList {
         this.array = new Object[0];
     }
 
-    private void OutOfBounds(int ind) {
+    private void outOfBounds(int ind) {
         if (ind < 0 || ind > array.length) {
             throw new IndexOutOfBoundsException();
         }
@@ -31,7 +31,7 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public ImmutableList add(int index, Object e) {
-        OutOfBounds(index);
+        outOfBounds(index);
         Object[] newarray = new Object[array.length + 1];
         int i = 0;
         int j = i;
@@ -53,7 +53,7 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public ImmutableList addAll(int index, Object[] c) {
-        OutOfBounds(index);
+        outOfBounds(index);
         Object[] newarray = new Object[array.length + c.length];
         int i = 0;
         int j = i;
@@ -78,7 +78,7 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public ImmutableList remove(int index) {
-        OutOfBounds(index);
+        outOfBounds(index);
         Object[] newarray = new Object[array.length - 1];
         int i = 0;
         int j = i;
@@ -95,7 +95,7 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public ImmutableList set(int index, Object e) {
-        OutOfBounds(index);
+        outOfBounds(index);
         Object[] newarray = Arrays.copyOf(array, array.length);
         newarray[index] = e;
         return new ImmutableArrayList(newarray);
@@ -141,7 +141,8 @@ public class ImmutableArrayList implements ImmutableList {
         for (int i = 0; i < array.length; i++) {
             result.append(array[i].toString()).append(", ");
         }
-        result.deleteCharAt(result.length() - 1).deleteCharAt(result.length() - 1);
+        result.deleteCharAt(result.length()
+                - 1).deleteCharAt(result.length() - 1);
 
         return result.toString();
     }
