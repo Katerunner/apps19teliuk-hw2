@@ -21,7 +21,7 @@ public class ImmutableArrayList implements ImmutableList {
 
 
     @Override
-    public ImmutableList add(Object e) {
+    public ImmutableArrayList add(Object e) {
         Object[] newarray = new Object[array.length + 1];
         for (int i = 0; i < array.length; i++) {
             newarray[i] = array[i];
@@ -31,7 +31,7 @@ public class ImmutableArrayList implements ImmutableList {
     }
 
     @Override
-    public ImmutableList add(int index, Object e) {
+    public ImmutableArrayList add(int index, Object e) {
         outOfBounds(index);
         Object[] newarray = new Object[array.length + 1];
         int i = 0;
@@ -48,12 +48,12 @@ public class ImmutableArrayList implements ImmutableList {
     }
 
     @Override
-    public ImmutableList addAll(Object[] c) {
+    public ImmutableArrayList addAll(Object[] c) {
         return addAll(array.length, c);
     }
 
     @Override
-    public ImmutableList addAll(int index, Object[] c) {
+    public ImmutableArrayList addAll(int index, Object[] c) {
         outOfBounds(index);
         Object[] newarray = new Object[array.length + c.length];
         int i = 0;
@@ -78,7 +78,7 @@ public class ImmutableArrayList implements ImmutableList {
     }
 
     @Override
-    public ImmutableList remove(int index) {
+    public ImmutableArrayList remove(int index) {
         outOfBounds(index);
         Object[] newarray = new Object[array.length - 1];
         int i = 0;
@@ -95,7 +95,7 @@ public class ImmutableArrayList implements ImmutableList {
     }
 
     @Override
-    public ImmutableList set(int index, Object e) {
+    public ImmutableArrayList set(int index, Object e) {
         outOfBounds(index);
         Object[] newarray = Arrays.copyOf(array, array.length);
         newarray[index] = e;
@@ -105,7 +105,7 @@ public class ImmutableArrayList implements ImmutableList {
     @Override
     public int indexOf(Object e) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == e) {
+            if (array[i].equals(e)) {
                 return i;
             }
         }
@@ -118,7 +118,7 @@ public class ImmutableArrayList implements ImmutableList {
     }
 
     @Override
-    public ImmutableList clear() {
+    public ImmutableArrayList clear() {
         return new ImmutableArrayList();
     }
 
